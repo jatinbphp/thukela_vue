@@ -112,5 +112,11 @@ export default createStore({
     getPassword(state) {
       return state.password;
     },
+    getAdminUser() {
+      return 'ThukelaApp';
+    },
+    getAdminPassword() {
+      return 'Thukela12';
+    },
   },
 });

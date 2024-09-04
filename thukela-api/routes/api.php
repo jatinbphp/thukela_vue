@@ -29,4 +29,8 @@ Route::prefix('v2')->group(function () {
     Route::get('provisionBill', [ProvisionBillController::class, 'getChartData']);
     Route::get('notifications', [ProvisionBillController::class, 'getNotificationData']);
     Route::get('sendContactUs', [ProvisionBillController::class, 'sendContactUs']);
+    Route::get('sendEmail', [ProvisionBillController::class, 'sendEmail']);
+    Route::get('send_simple_mail', [ProvisionBillController::class, 'send_simple_mail']);
+    Route::get('get_setting', [ProvisionBillController::class, 'getSetting']);
+    Route::get('set_setting', [ProvisionBillController::class, 'setSetting']);
 });

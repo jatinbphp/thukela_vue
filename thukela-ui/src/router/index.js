@@ -80,6 +80,7 @@ import Login from "../views/auth/signin/Login.vue";
 import provisionalBill from "../views/provisionalBill.vue";
 import notifications from "../views/notifications.vue";
 import contactUs from "../views/contactUs.vue";
+import setting from "../views/Setting.vue";
 
 const routes = [
   {
@@ -108,6 +109,12 @@ const routes = [
     path: "/ContactUs/",
     name: "ContactUs",
     component: contactUs,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: "/Setting/",
+    name: "Setting",
+    component: setting,
     meta: { requiresAuth: true }
   },
 ];

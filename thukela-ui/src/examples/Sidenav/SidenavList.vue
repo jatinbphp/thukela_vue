@@ -4,7 +4,7 @@
     class="w-auto h-auto collapse navbar-collapse max-height-vh-100 h-100"
   >
     <ul class="navbar-nav">
-      <li class="nav-item">
+      <li class="nav-item" v-if="!isCredentialsMatch">
         <sidenav-item
             :to="{ name: 'ProvisionalBill' }"
             mini-icon="P"
@@ -12,7 +12,7 @@
             icon="<i class='fas fa-file-invoice'></i>"
         />
       </li>
-      <li class="nav-item">
+      <li class="nav-item" v-if="!isCredentialsMatch">
         <sidenav-item
             :to="{ name: 'Notifications' }"
             mini-icon="N"
@@ -20,12 +20,20 @@
             icon="<i class='fa fa-bell'></i>"
         />
       </li>
-      <li class="nav-item">
+      <li class="nav-item" v-if="!isCredentialsMatch">
         <sidenav-item
             :to="{ name: 'ContactUs' }"
             mini-icon="C"
             text="Contact Us"
             icon="<i class='fa fa-address-book'></i>"
+        />
+      </li>
+      <li class="nav-item" v-if="isCredentialsMatch">
+        <sidenav-item
+            :to="{ name: 'Setting' }"
+            mini-icon="S"
+            text="setting"
+            icon="<i class='fa fa-cog'></i>"
         />
       </li>
     </ul>
@@ -64,6 +72,18 @@ export default {
       }
       return false;
     },
+    username() {
+      return this.$store.getters.getUsername;
+    },
+    password() {
+      return this.$store.getters.getPassword;
+    },
+    isCredentialsMatch() {
+      if(this.username == this.$store.getters.getAdminUser && this.password == this.$store.getters.getAdminPassword){
+        return true;
+      }
+      return false;
+    }
   },
   async created() {
     if (this.$store.getters["auth/loggedIn"]) {
