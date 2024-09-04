@@ -137,7 +137,11 @@ export default {
           localStorage.setItem('is_logged_in',true);
           this.$store.dispatch('setUsername', this.username);
           this.$store.dispatch('setPassword', this.password);
-          this.$router.push('/ProvisionalBill/');
+          if(this.username == this.$store.getters.getAdminUser && this.password == this.$store.getters.getAdminPassword){
+            this.$router.push('/Setting/');
+          }else{
+            this.$router.push('/ProvisionalBill/');
+          }
         } else {
           showSwal.methods.showSwal({
             type: "error",

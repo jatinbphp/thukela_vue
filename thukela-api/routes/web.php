@@ -19,4 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('/sendMail', [ProvisionBillController::class, 'sendEmail']);
+Route::get('/send_simple_mail', [ProvisionBillController::class, 'send_simple_mail']);
+
 

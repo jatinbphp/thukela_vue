@@ -325,9 +325,9 @@ class ProvisionBillController extends Controller
                                         $data['percentage'] = $percentage;
 
                                         try {
-                                            // Mail::to('webmaster@portalthukelametering.co.za')
-                                            //     ->cc(['notifications@thukelametering.co.za'])
-                                            //     ->send(new sendAlert($data));
+                                            Mail::to('webmaster@portalthukelametering.co.za')
+                                                ->cc(['notifications@thukelametering.co.za'])
+                                                ->send(new sendAlert($data));
                                             Log::info('Mail sent successfully.');
                                         } catch (\Exception $e) {
                                             Log::error('Failed to send mail: ' . $e->getMessage());
